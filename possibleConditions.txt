@@ -1,0 +1,5 @@
+1. Select City
+2. Select Car
+3. Select Journey Date
+4. Enter Destination
+5. Select Journey Type
