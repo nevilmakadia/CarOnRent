@@ -84,7 +84,7 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
                 {{-- bookingDate --}}
                 <div class="col-sm-6">
                     <label class="form-label">Select Journey Date:<span class="text-danger"> *</span></label>
-                    <input type="date" name="bookingDate" class="form-control" value="2022-03-17">
+                    <input type="date" name="bookingDate" class="form-control" value="2022-03-24">
                     <span class="text-danger">
                         @error('bookingDate')
                         {{ $message }}
@@ -95,7 +95,7 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
                 {{-- destination --}}
                 <div class="col-sm-6">
                     <label class="form-label">Enter Destination:<span class="text-danger"> *</span></label>
-                    <input type="text" name="destination" class="form-control" placeholder="Enter Destination" value="Ahmadabad">
+                    <input type="text" name="destination" class="form-control" placeholder="Enter Destination" value="Ahmdabad">
                     <span class="text-danger">
                         @error('destination')
                         {{ $message }}
