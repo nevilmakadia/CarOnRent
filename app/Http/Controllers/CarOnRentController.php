@@ -52,8 +52,13 @@ class CarOnRentController extends Controller
             ])->first();
 
             if (!empty($if_fullDay)) {
+<<<<<<< HEAD
                 $request->session()->flash('message', 'This schedule is already booked for full day');
                 return redirect('bookCar');
+=======
+                $request->session()->flash('message', 'Your booking has been done for full day');
+                return redirect('viewBooking');
+>>>>>>> parent of 55db2ed (halfDay done)
             } else {
                 $book = new CarOnRent;
                 $book->cityName = $request->cityName;
