@@ -7,13 +7,6 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
 </script>
 {{-- BS Icon CDN --}}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-<style>
-    body, table {
-        font-family: 'Merriweather', serif;
-        font-weight: bolder;
-    }
-
-</style>
 
 <div class="card">
     <div class="card-header">

@@ -38,7 +38,7 @@ class CarOnRentController extends Controller
         ])->first();
 
         if (!empty($if_fullDay)) {
-            $request->session()->flash('message', 'This schedule is already booked for full day');
+            $request->session()->flash('message', 'This schedule is already booked');
             return redirect('bookCar');
         }
 
@@ -52,8 +52,8 @@ class CarOnRentController extends Controller
             ])->first();
 
             if (!empty($if_fullDay)) {
-                $request->session()->flash('message', 'This schedule is already booked for full day');
-                return redirect('bookCar');
+                $request->session()->flash('message', 'Your booking has been done for full day');
+                return redirect('viewBooking');
             } else {
                 $book = new CarOnRent;
                 $book->cityName = $request->cityName;
@@ -87,6 +87,7 @@ class CarOnRentController extends Controller
 
         $book = new CarOnRent;
         if ($request->bookingType = 'halfDay') {
+
             // firstHalf
             $first_halfDay = CarOnRent::where([
                 'cityName' => $request->cityName,
@@ -142,6 +143,23 @@ class CarOnRentController extends Controller
                 return redirect('viewBooking');
             }
         }
+<<<<<<< HEAD
+=======
+
+        // $res->cityName = $request->input('cityName');
+        // $res->carName = $request->input('carName');
+        // $res->bookingDate = $request->input('bookingDate');
+        // $res->bookingType = $request->input('bookingType');
+        // $res->halfDay = $request->input('halfDay');
+        // $res->hourly = $request->input('hourly');
+        // $res->fromTime = $request->input('fromTime');
+        // $res->toTime = $request->input('toTime');
+        // $res->destination = $request->input('destination');
+        // $res->save();
+
+        // $request->session()->flash('message', 'Your booking has been confirmed.');
+        // return redirect('viewBooking');
+>>>>>>> parent of bec7eda (pull halfDay)
     }
 
     public function show(CarOnRent $carOnRent)

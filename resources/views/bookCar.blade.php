@@ -8,11 +8,6 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 {{-- Radio Button CSS --}}
 <style>
-    body {
-        font-family: 'Merriweather', serif;
-        font-weight: bolder;
-    }
-
     #halfDayTime {
         padding: 10px;
         display: none;
@@ -60,7 +55,7 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
                     </select>
                     <span class="text-danger">
                         @error('cityName')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -79,7 +74,7 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
                     </select>
                     <span class="text-danger">
                         @error('carName')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -92,7 +87,7 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
                     <input type="date" name="bookingDate" class="form-control">
                     <span class="text-danger">
                         @error('bookingDate')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -103,7 +98,7 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
                     <input type="text" name="destination" class="form-control" placeholder="Enter Destination">
                     <span class="text-danger">
                         @error('destination')
-                            {{ $message }}
+                        {{ $message }}
                         @enderror
                     </span>
                 </div>
@@ -112,8 +107,7 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
             <div class="row mb-2">
                 {{-- bookingType --}}
                 <div class="col-sm-6">
-                    <label class="form-label">Select Journey type:<span class="text-danger">
-                            *</span></label><br />
+                    <label class="form-label">Select Journey type:<span class="text-danger"> *</span></label><br />
                     {{-- fullDay --}}
                     <label>
                         <input type="radio" name="bookingType" value="Full Day" id="fullDayId" checked> Full Day
@@ -162,7 +156,6 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
                             <option value="11:00am" class="form-group text-primary">11:00am</option>
                             <option value="12:00pm" class="form-group text-primary">12:00pm</option>
                             <option value="" class="form-group" disabled> > Break Time < </option>
-                            <option value="02:00pm" class="form-group text-primary">02:00pm</option>
                             <option value="03:00pm" class="form-group text-primary">03:00pm</option>
                             <option value="04:00pm" class="form-group text-primary">04:00pm</option>
                             <option value="05:00pm" class="form-group text-primary">05:00pm</option>
