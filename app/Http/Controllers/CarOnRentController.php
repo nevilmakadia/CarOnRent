@@ -34,17 +34,16 @@ class CarOnRentController extends Controller
         $if_fullDay = CarOnRent::where([
             'cityName' => $request->cityName,
             'carName' => $request->carName,
-            'bookingDate' => $request->bookingDate,
-            'bookingType' => 'fullDay'
+            'bookingDate' => $request->bookingDate
         ])->first();
 
         if (!empty($if_fullDay)) {
             $request->session()->flash('message', 'This schedule is already booked');
             return redirect('bookCar');
-            dd('running');
         }
+
         $book = new CarOnRent;
-        if ($request->bookingType == 'fullDay') {
+        if ($request->bookingType = 'fullDay') {
 
             $if_fullDay = CarOnRent::where([
                 'cityName' => $request->cityName,
