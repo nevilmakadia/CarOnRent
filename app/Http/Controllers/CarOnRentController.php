@@ -35,20 +35,16 @@ class CarOnRentController extends Controller
             'cityName' => $request->cityName,
             'carName' => $request->carName,
             'bookingDate' => $request->bookingDate,
-<<<<<<< HEAD
-            'bookingType' => 'fullDay'
-=======
             'bookingType' => $request->bookingType,
             'destination' => $request->destination
->>>>>>> parent of 760760d (Book Condition)
         ])->first();
-        
+
         if (!empty($if_fullDay)) {
             $request->session()->flash('message', 'This schedule is already booked');
             return redirect('bookCar');
             dd('running');
         }
-        $newBooking = new CarOnRent;
+        $book = new CarOnRent;
         if ($request->bookingType == 'fullDay') {
 
             $if_fullDay = CarOnRent::where([
@@ -58,25 +54,6 @@ class CarOnRentController extends Controller
             ])->first();
 
             if (!empty($if_fullDay)) {
-<<<<<<< HEAD
-                $request->session()->flash('message', 'Your booking has been done for FULL DAY');
-                return redirect('viewBooking');
-            } else {
-                $newBooking = new CarOnRent;
-                $newBooking->cityName = $request->cityName;
-                $newBooking->carName = $request->carName;
-                $newBooking->bookingDate = $request->bookingDate;
-                $newBooking->bookingType = $request->bookingType;
-                $newBooking->halfDay = $request->halfDay;
-                $newBooking->hourly = $request->hourly;
-                $newBooking->fromTime = $request->fromTime;
-                $newBooking->toTime = $request->toTime;
-                $newBooking->destination = $request->destination;
-                $newBooking->save();
-                return redirect('viewBooking');
-            }
-        }
-=======
                 $request->session()->flash('message', 'Your booking has been done for full day');
                 return redirect('viewBooking');
             } else {
@@ -109,7 +86,6 @@ class CarOnRentController extends Controller
 
         // $request->session()->flash('message', 'Your booking has been confirmed.');
         // return redirect('viewBooking');
->>>>>>> parent of 760760d (Book Condition)
     }
 
     public function show(CarOnRent $carOnRent)
