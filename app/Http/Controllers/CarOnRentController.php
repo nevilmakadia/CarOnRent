@@ -26,8 +26,8 @@ class CarOnRentController extends Controller
             'cityName' => 'required',
             'carName' => 'required',
             'bookingDate' => 'required',
-            'bookingType' => 'required',
-            'destination' => 'required'
+            'destination' => 'required',
+            'bookingType' => 'required'
         ]);
 
         // fullDay
@@ -35,8 +35,7 @@ class CarOnRentController extends Controller
             'cityName' => $request->cityName,
             'carName' => $request->carName,
             'bookingDate' => $request->bookingDate,
-            'bookingType' => $request->bookingType,
-            'destination' => $request->destination
+            'bookingType' => 'fullDay'
         ])->first();
 
         if (!empty($if_fullDay)) {
