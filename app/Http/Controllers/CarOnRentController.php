@@ -26,7 +26,8 @@ class CarOnRentController extends Controller
             'cityName' => 'required',
             'carName' => 'required',
             'bookingDate' => 'required',
-            'bookingType' => 'required'
+            'bookingType' => 'required',
+            'destination' => 'required'
         ]);
 
         // fullDay
@@ -34,7 +35,12 @@ class CarOnRentController extends Controller
             'cityName' => $request->cityName,
             'carName' => $request->carName,
             'bookingDate' => $request->bookingDate,
+<<<<<<< HEAD
             'bookingType' => 'fullDay'
+=======
+            'bookingType' => $request->bookingType,
+            'destination' => $request->destination
+>>>>>>> parent of 760760d (Book Condition)
         ])->first();
         
         if (!empty($if_fullDay)) {
@@ -52,6 +58,7 @@ class CarOnRentController extends Controller
             ])->first();
 
             if (!empty($if_fullDay)) {
+<<<<<<< HEAD
                 $request->session()->flash('message', 'Your booking has been done for FULL DAY');
                 return redirect('viewBooking');
             } else {
@@ -69,6 +76,40 @@ class CarOnRentController extends Controller
                 return redirect('viewBooking');
             }
         }
+=======
+                $request->session()->flash('message', 'Your booking has been done for full day');
+                return redirect('viewBooking');
+            } else {
+                $book = new CarOnRent;
+                $book->cityName = $request->cityName;
+                $book->carName = $request->carName;
+                $book->bookingDate = $request->bookingDate;
+                $book->bookingType = $request->bookingType;
+                $book->halfDay = $request->halfDay;
+                $book->hourly = $request->hourly;
+                $book->fromTime = $request->fromTime;
+                $book->toTime = $request->toTime;
+                $book->destination = $request->destination;
+                $book->save();
+                $request->session()->flash('message', 'Your booking has been done for full day.');
+                return redirect('viewBooking');
+            }
+        }
+
+        // $res->cityName = $request->input('cityName');
+        // $res->carName = $request->input('carName');
+        // $res->bookingDate = $request->input('bookingDate');
+        // $res->bookingType = $request->input('bookingType');
+        // $res->halfDay = $request->input('halfDay');
+        // $res->hourly = $request->input('hourly');
+        // $res->fromTime = $request->input('fromTime');
+        // $res->toTime = $request->input('toTime');
+        // $res->destination = $request->input('destination');
+        // $res->save();
+
+        // $request->session()->flash('message', 'Your booking has been confirmed.');
+        // return redirect('viewBooking');
+>>>>>>> parent of 760760d (Book Condition)
     }
 
     public function show(CarOnRent $carOnRent)
