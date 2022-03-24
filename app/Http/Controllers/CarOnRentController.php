@@ -39,7 +39,7 @@ class CarOnRentController extends Controller
         ])->first();
 
         if (!empty($if_fullDay)) {
-            $request->session()->flash('message', 'This schedule is already booked');
+            $request->session()->flash('message', 'This schedule is already booked for full day');
             return redirect('bookCar');
         }
 
@@ -54,8 +54,8 @@ class CarOnRentController extends Controller
             ])->first();
 
             if (!empty($if_fullDay)) {
-                $request->session()->flash('message', 'Your booking has been done for full day');
-                return redirect('viewBooking');
+                $request->session()->flash('message', 'This schedule is already booked for full day');
+                return redirect('bookCar');
             } else {
                 $book = new CarOnRent;
                 $book->cityName = $request->cityName;
@@ -91,13 +91,12 @@ class CarOnRentController extends Controller
 
         $book = new CarOnRent;
         if ($request->bookingType = 'halfDay') {
-
             // firstHalf
             $first_halfDay = CarOnRent::where([
                 'cityName' => $request->cityName,
                 'carName' => $request->carName,
                 'bookingDate' => $request->bookingDate,
-                'bookingType' => 'halfDay',
+                // 'bookingType' => 'halfDay',
                 'halfDay' => '09:00am To 01:00pm'
             ])->first();
 
@@ -124,7 +123,7 @@ class CarOnRentController extends Controller
                 'cityName' => $request->cityName,
                 'carName' => $request->carName,
                 'bookingDate' => $request->bookingDate,
-                'bookingType' => 'halfDay',
+                // 'bookingType' => 'halfDay',
                 'halfDay' => '02:00pm To 09:00pm'
             ])->first();
 
@@ -147,20 +146,22 @@ class CarOnRentController extends Controller
                 return redirect('viewBooking');
             }
         }
+        // end of halfDay
 
-        // $res->cityName = $request->input('cityName');
-        // $res->carName = $request->input('carName');
-        // $res->bookingDate = $request->input('bookingDate');
-        // $res->bookingType = $request->input('bookingType');
-        // $res->halfDay = $request->input('halfDay');
-        // $res->hourly = $request->input('hourly');
-        // $res->fromTime = $request->input('fromTime');
-        // $res->toTime = $request->input('toTime');
-        // $res->destination = $request->input('destination');
-        // $res->save();
+        // hourly
+        $if_hourly = CarOnRent::where([
+            'cityName' => $request->cityName,
+            'carName' => $request->carName,
+            'bookingDate' => $request->bookingDate,
+            'bookingType' => 'hourly',
+        ])->first();
 
-        // $request->session()->flash('message', 'Your booking has been confirmed.');
-        // return redirect('viewBooking');
+        if (!empty($if_hourly)) {
+            $request->session()->flash('message', 'This schedule is already booked');
+            return redirect('bookCar');
+        }
+        // end of hourly
+
     }
 
     public function show(CarOnRent $carOnRent)
