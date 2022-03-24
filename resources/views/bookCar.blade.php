@@ -128,7 +128,7 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
                             <option value="" class="form-group" selected disabled>Select Time</option>
                             <option value="09:00am To 01:00pm" class="form-group text-success">09:00am To 01:00pm
                             </option>
-                            <option value="02:00am To 09:00pm" class="form-group text-success">02:00am To 09:00pm
+                            <option value="02:00pm To 09:00pm" class="form-group text-success">02:00pm To 09:00pm
                             </option>
                         </select>
                     </div>
