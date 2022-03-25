@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Carbooking;
+use App\Models\CarOnRent;
 use Error;
 use Illuminate\Http\Request;
 use Symfony\Contracts\Service\Attribute\Required;
 
-class BookingcarController extends Controller
+class CarOnRentController extends Controller
 {
     public function index()
     {
@@ -31,7 +31,7 @@ class BookingcarController extends Controller
 
 
         //full day booking data     
-        $is_fullday = Carbooking::where([
+        $is_fullday = CarOnRent::where([
             'citys_name' => $request->booking_citys,
             'cars_name' => $request->booking_cars,
             'pickup_date' => $request->booking_date,
@@ -43,15 +43,10 @@ class BookingcarController extends Controller
             $error = "car is already booked for full day";
             return Redirect()->route('index')->withErrors([$error]);
         }
-        $booking = new Carbooking;
-
-        // var_dump(!empty($is_fullday));die();
-
-        // //echo "error";die();
-
+        $booking = new CarOnRent;
         if ($request->booking == 'Fullday') {
 
-            $is_fullday = Carbooking::where([
+            $is_fullday = CarOnRent::where([
                 'citys_name' => $request->booking_citys,
                 'cars_name' => $request->booking_cars,
                 'pickup_date' => $request->booking_date,
@@ -63,7 +58,7 @@ class BookingcarController extends Controller
                 return Redirect()->route('index')->withErrors([$error]);
             } else {
 
-                $booking = new Carbooking;
+                $booking = new CarOnRent;
                 $booking->citys_name = $request->booking_citys;
                 $booking->cars_name = $request->booking_cars;
                 $booking->pickup_date = $request->booking_date;
@@ -84,7 +79,7 @@ class BookingcarController extends Controller
 
         if ($request->booking == 'Halfday') {
 
-            $is_Halfday = Carbooking::where([
+            $is_Halfday = CarOnRent::where([
                 'citys_name' => $request->booking_citys,
                 'cars_name' => $request->booking_cars,
                 'pickup_date' => $request->booking_date,
@@ -121,7 +116,7 @@ class BookingcarController extends Controller
                 if ($request->booking_halfday == "8:00 to 13:00") {
 
 
-                    $is_valid = Carbooking::where([
+                    $is_valid = CarOnRent::where([
 
                         'citys_name' => $request->booking_citys,
                         'cars_name' => $request->booking_cars,
@@ -137,7 +132,7 @@ class BookingcarController extends Controller
                         return Redirect()->route('index')->withErrors([$error]);
                     }
 
-                    $booking = new Carbooking;
+                    $booking = new CarOnRent;
                     $booking->citys_name = $request->booking_citys;
                     $booking->cars_name = $request->booking_cars;
                     $booking->pickup_date = $request->booking_date;
@@ -150,7 +145,7 @@ class BookingcarController extends Controller
                     return redirect()->route('index');
                 } else {
 
-                    $is_valid = Carbooking::where([
+                    $is_valid = CarOnRent::where([
                         'cars_name' => $request->booking_cars,
                         'citys_name' => $request->booking_citys,
                         'pickup_date' => $request->booking_date,
@@ -164,7 +159,7 @@ class BookingcarController extends Controller
                         return Redirect()->route('index')->withErrors([$error]);
                     }
 
-                    $booking = new Carbooking;
+                    $booking = new CarOnRent;
                     $booking->citys_name = $request->booking_citys;
                     $booking->cars_name = $request->booking_cars;
                     $booking->pickup_date = $request->booking_date;
@@ -190,7 +185,7 @@ class BookingcarController extends Controller
                 $error = "from time to time must be deferent ";
                 return Redirect()->route('index')->withErrors([$error]);
             }
-            $is_booked = Carbooking::where([
+            $is_booked = CarOnRent::where([
 
                 'cars_name' => $request->booking_cars,
                 'citys_name' => $request->booking_citys,
@@ -229,7 +224,7 @@ class BookingcarController extends Controller
                 if (in_array($request->booking_hourlytwo, $array1)) {
                     if (in_array($request->booking_hourlythree, $array2)) {
 
-                        $is_booked = Carbooking::where([
+                        $is_booked = CarOnRent::where([
                             'cars_name' => $request->booking_cars,
                             'citys_name' => $request->booking_citys,
                             'pickup_date' => $request->booking_date,
@@ -250,7 +245,7 @@ class BookingcarController extends Controller
 
             if (in_array($request->booking_hourlythree, $array2)) {
 
-                $is_booked = Carbooking::where([
+                $is_booked = CarOnRent::where([
                     'cars_name' => $request->booking_cars,
                     'citys_name' => $request->booking_citys,
                     'pickup_date' => $request->booking_date,
@@ -268,7 +263,7 @@ class BookingcarController extends Controller
         if (in_array($request->booking_hourlytwo, $array2)) {
             if (in_array($request->booking_hourlythree, $array2)) {
 
-                $is_booked = Carbooking::where([
+                $is_booked = CarOnRent::where([
                     'cars_name' => $request->booking_cars,
                     'citys_name' => $request->booking_citys,
                     'pickup_date' => $request->booking_date,
@@ -282,7 +277,7 @@ class BookingcarController extends Controller
                 }
             }
         }
-        $is_hourly = Carbooking::where([
+        $is_hourly = CarOnRent::where([
             'cars_name' => $request->booking_cars,
             'citys_name' => $request->booking_citys,
             'pickup_date' => $request->booking_date,
@@ -300,7 +295,7 @@ class BookingcarController extends Controller
                         ->withErrors([$error]);
                 }
             }
-            $booking = new Carbooking;
+            $booking = new CarOnRent;
             $booking->citys_name = $request->booking_citys;
             $booking->cars_name = $request->booking_cars;
             $booking->pickup_date = $request->booking_date;
@@ -313,7 +308,7 @@ class BookingcarController extends Controller
             return redirect()->route('index');
         } else {
 
-            $booking = new Carbooking;
+            $booking = new CarOnRent;
             $booking->citys_name = $request->booking_citys;
             $booking->cars_name = $request->booking_cars;
             $booking->pickup_date = $request->booking_date;
@@ -333,21 +328,21 @@ class BookingcarController extends Controller
 
     public function show()
     {
-        $carbook = Carbooking::all();
+        $carbook = CarOnRent::all();
         // dd($carbook);
         return view('create', compact('carbook'));
     }
 
     public function edit($id)
     {
-        // $carbook = Carbooking::find($id);
+        // $carbook = CarOnRent::find($id);
         // return view('edit',compact('carbook'));
 
     }
 
     public function update(Request $request, $id)
     {
-        // $carbook = Carbooking::find($id);
+        // $carbook = CarOnRent::find($id);
         // $carbook->citys_name = $request->booking_citys;
         // $carbook->cars_name = $request->booking_cars;
         // $carbook->pickup_date = $request->booking_date;
@@ -362,7 +357,7 @@ class BookingcarController extends Controller
 
     public function destroy($id)
     {
-        $carbook = Carbooking::find($id);
+        $carbook = CarOnRent::find($id);
         $carbook->delete();
         return redirect('show');
     }
