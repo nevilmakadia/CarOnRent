@@ -23,7 +23,7 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
 <div class="p-4">
     <div class="content-wrapped text-center">
         <div class="text-success">
-            {{ session('message') }}
+            <b style="text-transform: capitalize">{{ session('message') }}</b>
         </div>
         <table class="table table-bordered mt-3 table-hover table-responsive" style="border: 2px solid black">
             <tr class="text-center align-middle" style="border: 2px solid black">
