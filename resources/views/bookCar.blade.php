@@ -1,24 +1,5 @@
-{{-- BS CSS --}}
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-{{-- BS JS --}}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-{{-- BS Icon CDN --}}
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-{{-- Radio Button CSS --}}
-<style>
-    #halfDayTime {
-        padding: 10px;
-        display: none;
-    }
-
-    #hourlyTime {
-        padding: 10px;
-        display: none;
-    }
-
-</style>
+{{-- CSS --}}
+<link rel="stylesheet" href={{ asset('css/style.css') }}>
 
 <div class="card">
     <div class="card-header">
@@ -111,25 +92,25 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
                             *</span></label><br />
                     {{-- fullDay --}}
                     <label>
-                        <input type="radio" name="bookingType" value="Full Day" id="fullDayId" checked> Full Day
+                        <input type="radio" name="bookingType" value="0" id="fullDayId" checked> Full Day
                     </label>
 
                     {{-- halfDay --}}
                     <label>
-                        <input type="radio" name="bookingType" value="Half Day" id="halfDayId"> Half Day
+                        <input type="radio" name="bookingType" value="1" id="halfDayId"> Half Day
                     </label>
 
                     {{-- hourly --}}
                     <label>
-                        <input type="radio" name="bookingType" value="Hourly" id="hourlyId"> Hourly
+                        <input type="radio" name="bookingType" value="2" id="hourlyId"> Hourly
                     </label>
                     {{-- halfDayDiv --}}
                     <div id="halfDayTime">
                         <select name="halfDay" class="form-control">
                             <option value="" class="form-group" selected disabled>Select Time</option>
-                            <option value="09:00am To 01:00pm" class="form-group text-success">09:00am To 01:00pm
+                            <option value="1" class="form-group text-success">09:00am To 01:00pm
                             </option>
-                            <option value="02:00pm To 09:00pm" class="form-group text-success">02:00pm To 09:00pm
+                            <option value="2" class="form-group text-success">02:00pm To 09:00pm
                             </option>
                         </select>
                     </div>
@@ -175,46 +156,8 @@ integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+
     </div>
 </div>
 
-{{-- halfDay JS --}}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    // showOption
-    $(document).ready(function() {
-        $("#halfDayId").click(function() {
-            $("#halfDayTime").slideDown("fast");
-        });
-    });
-    // hideOption
-    $(document).ready(function() {
-        $("#fullDayId").click(function() {
-            $("#halfDayTime").slideUp("fast")
-        });
-    });
-    $(document).ready(function() {
-        $("#hourlyId").click(function() {
-            $("#halfDayTime").slideUp("fast")
-        });
-    });
-</script>
-
-{{-- hourly JS --}}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    // showOption
-    $(document).ready(function() {
-        $("#hourlyId").click(function() {
-            $("#hourlyTime").slideDown("fast");
-        });
-    });
-    // hideOption
-    $(document).ready(function() {
-        $("#fullDayId").click(function() {
-            $("#hourlyTime").slideUp("fast")
-        });
-    });
-    $(document).ready(function() {
-        $("#halfDayId").click(function() {
-            $("#hourlyTime").slideUp("fast")
-        });
-    });
-</script>
+{{-- JS --}}
+{{-- RadioButton --}}
+<script src="{{ URL::asset('js/RadioButton.js') }}"></script>
+{{-- BootStrap --}}
+<script src="{{ URL::asset('js/bootstrap.js') }}"></script>
