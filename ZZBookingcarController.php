@@ -45,7 +45,6 @@ class CarOnRentController extends Controller
         }
         $booking = new CarOnRent;
         if ($request->booking == 'Fullday') {
-
             $is_fullday = CarOnRent::where([
                 'citys_name' => $request->booking_citys,
                 'cars_name' => $request->booking_cars,
