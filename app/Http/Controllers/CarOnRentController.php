@@ -30,6 +30,7 @@ class CarOnRentController extends Controller
         ]);
 
         // fullDay
+        // bookingtType 0 = fullDay
         $if_fullDay = CarOnRent::where([
             'cityName' => $request->cityName,
             'carName' => $request->carName,
@@ -37,10 +38,8 @@ class CarOnRentController extends Controller
             'bookingType' => '0'
         ])->first();
         if ($if_fullDay) {
-            $request->session()->flash('message', 'This schedule is already booked for full day');
-            return redirect('bookCar');
+            return redirect('bookCar')->with('message', 'This schedule is already booked for full day');
         }
-
         $bookFullDay = new CarOnRent;
         if ($request->bookFullDay = 'fullDay') {
             $is_fullDay = CarOnRent::where([
@@ -48,7 +47,6 @@ class CarOnRentController extends Controller
                 'carName' => $request->carName,
                 'bookingDate' => $request->bookingDate
             ])->first();
-
             if ($is_fullDay) {
                 return redirect('bookCar')->with('message', 'This schedule is already booked for full day');
             } else {
@@ -69,6 +67,8 @@ class CarOnRentController extends Controller
         // end of fullDay
 
         // halfDay
+        // bookingType 1 = halfDay
+        // halfDay 1 = firstHalf, halfDay 2 = secondHalf
         $if_halfDay = CarOnRent::where([
             'cityName' => $request->cityName,
             'carName' => $request->carName,
@@ -156,6 +156,6 @@ class CarOnRentController extends Controller
     public function destroy(CarOnRent $carOnRent, $id)
     {
         CarOnRent::destroy(array('id', $id));
-        return redirect('viewBooking')->with('message2', 'Record Deleted');
+        return redirect('viewBooking')->with('message2', 'Record Deleted Successfully');
     }
 }

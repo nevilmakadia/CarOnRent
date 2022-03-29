@@ -1,6 +1,6 @@
 {{-- CSS --}}
 <link rel="stylesheet" href={{ asset('css/style.css') }}>
-
+<title>Book Your Car</title>
 <div class="card">
     <div class="card-header">
         CarOnRent / <span class="text-success">bookCar</span>
@@ -76,7 +76,7 @@
                 {{-- destination --}}
                 <div class="col-sm-6">
                     <label class="form-label">Enter Destination:<span class="text-danger"> *</span></label>
-                    <input type="text" name="destination" class="form-control" placeholder="Enter Destination">
+                    <input type="text" name="destination" class="form-control" placeholder="Enter Destination" value="Ahmadabad">
                     <span class="text-danger">
                         @error('destination')
                             {{ $message }}
@@ -104,6 +104,7 @@
                     <label>
                         <input type="radio" name="bookingType" value="2" id="hourlyId"> Hourly
                     </label>
+
                     {{-- halfDayDiv --}}
                     <div id="halfDayTime">
                         <select name="halfDay" class="form-control">

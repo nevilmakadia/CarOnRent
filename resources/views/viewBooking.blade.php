@@ -1,6 +1,6 @@
 {{-- CSS --}}
 <link rel="stylesheet" href={{ asset('css/style.css') }}>
-
+<title>Manage Booking</title>
 <div class="card">
     <div class="card-header">
         CarOnRent / <span class="text-primary">viewBooking</span>
