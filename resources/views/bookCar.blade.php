@@ -13,6 +13,7 @@
     </div>
 </div>
 
+{{-- main section --}}
 <div class="container">
     <div class="content-wrapped col-sm-12 mt-3">
         <div class="text-danger text-center">
@@ -76,7 +77,7 @@
                 {{-- destination --}}
                 <div class="col-sm-6">
                     <label class="form-label">Enter Destination:<span class="text-danger"> *</span></label>
-                    <input type="text" name="destination" class="form-control" placeholder="Enter Destination" value="Ahmadabad">
+                    <input type="text" name="destination" class="form-control" placeholder="Enter Destination">
                     <span class="text-danger">
                         @error('destination')
                             {{ $message }}

@@ -80,7 +80,7 @@ class CarOnRentController extends Controller
         if ($if_halfDay) {
             return redirect('bookCar')->with('message', 'This schedule is already booked for half day');
         }
-
+        
         $bookHalf = new CarOnRent;
         if ($request->bookHalf = 'halfDay') {
             // firstHalf
