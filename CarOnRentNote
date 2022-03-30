@@ -1,11 +1,17 @@
-Name: Nevil Makadia
-Task: Laravel/CarOnRent
-Day: 28/03/2022
-Todo: Insert halfDay
-Done: fullDay running, halfDay not working correctly
+Name    : Nevil Makadia
+Task    : Laravel/CarOnRent
+Day     : 28/03/2022
+Todo    : Insert halfDay
+Done    : fullDay running, halfDay not working correctly
 
-Name: Nevil Makadia
-Task: Laravel/CarOnRent
-Day: 29/03/2022
-Todo: Update halfDay
-Done: 
+Name    : Nevil Makadia
+Task    : Laravel/CarOnRent
+Day     : 29/03/2022
+Todo    : Update halfDay
+Done    :
+
+Name    : Nevil Makadia
+Task    : Laravel/CarOnRent
+Day     : 30/03/2022
+Todo    : Update halfDay and hourly
+Done    : halfDay done, hourly insertion done
