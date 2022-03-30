@@ -50,7 +50,7 @@ class CarOnRentController extends Controller
             if ($is_fullDay != "") {
                 return redirect('bookCar')->with('message', 'This schedule is already booked for full day');
             } else {
-                $bookFullDay = new CarOnRent;
+                // $bookFullDay = new CarOnRent;
                 $bookFullDay->cityName = $request->cityName;
                 $bookFullDay->carName = $request->carName;
                 $bookFullDay->bookingDate = $request->bookingDate;
@@ -95,7 +95,7 @@ class CarOnRentController extends Controller
                 if ($if_firstHalf) {
                     return redirect('bookCar')->with('message', 'This schedule is already booked for first half');
                 } else {
-                    $bookHalf = new CarOnRent;
+                    // $bookHalf = new CarOnRent;
                     $bookHalf->cityName = $request->cityName;
                     $bookHalf->carName = $request->carName;
                     $bookHalf->bookingDate = $request->bookingDate;
