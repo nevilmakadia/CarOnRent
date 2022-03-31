@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\CarOnRent;
 use Illuminate\Http\Request;
+use Prophecy\Argument\Token\InArrayToken;
 use Symfony\Contracts\Service\Attribute\Required;
 use Symfony\Component\Console\Input\Input;
 
@@ -138,44 +139,109 @@ class CarOnRentController extends Controller
             }
         }
         // end of hlafDay
+        elseif ($request->bookingType == '2') {
+            if ($request->fromTime > $request->toTime) {
+                return redirect('bookCar')->with('message', 'Please Select Valid Time');
+            }
+            if ($request->fromTime == $request->toTime) {
+                return redirect('bookCar')->with('message', 'Start Time And To Time Can Not Be Same');
+            }
+            $is_hourly = CarOnRent::where([
+                'carName' => $request->carName,
+                'cityName' => $request->cityName,
+                'bookingDate' => $request->bookingDate,
+                'bookingType' => '2',
+                'fromTime' => $request->fromTime,
+                'toTime' => $request->toTime
+            ])->first();
 
+            if ($is_hourly != "") {
+                return redirect('bookCar')->with('message', 'This schedule is already booked with another time period');
+            } else {
+                $fromTime = [
+                    '09:00am',
+                    '10:00am',
+                    '11:00am',
+                    '12:00pm',
+                    '02:00pm',
+                    '03:00pm',
+                    '04:00pm',
+                    '05:00pm',
+                    '06:00pm',
+                    '07:00pm',
+                    '08:00pm',
+                ];
+                $toTime = [
+                    '10:00am',
+                    '11:00am',
+                    '12:00pm',
+                    '02:00pm',
+                    '03:00pm',
+                    '04:00pm',
+                    '05:00pm',
+                    '06:00pm',
+                    '07:00pm',
+                    '08:00pm',
+                    '09:00pm'
+                ];
+
+                if (in_array($request->fromTime, $fromTime)) {
+                    if (in_array($request->toTime, $toTime)) {
+                        $if_booked = CarOnRent::where([
+                            'carName' => $request->carName,
+                            'cityName' => $request->cityName,
+                            'bookingDate' => $request->bookingDate,
+                            'bookingType' => '2'
+                        ])->first();
+                        if ($if_booked != "") {
+                            return redirect('bookCar')->with('message', 'This schedule is booked for hourly time period');
+                        }
+                    }
+                }
+            }
+        }
+
+        if (in_array($request->fromTime, $fromTime)) {
+            if (in_array($request->toTime, $toTime)) {
+                $if_booked = CarOnRent::where([
+                    'carName' => $request->carName,
+                    'cityName' => $request->cityName,
+                    'bookingDate' => $request->bookingDate,
+                    'bookingType' => $request->bookingType,
+                    'halfDay' => '1',
+                ])->first();
+                return redirect('bookCar')->with('message', 'This schedule is already booked for first half period');
+            }
+        }
+
+        if (in_array($request->fromTime, $toTime)) {
+            if (in_array($request->toTime, $toTime)) {
+                $if_booked = CarOnRent::where([
+                    'carName' => $request->carName,
+                    'cityName' => $request->cityName,
+                    'bookingDate' => $request->bookingDate,
+                    'bookingType' => $request->bookingType,
+                    'halfDay' => '2'
+                ])->first();
+                return redirect('bookCar')->with('message', 'This schedule is already booked for second half period');
+            }
+        }
+
+        $if_hourly = CarOnRent::where([
+            'carName' => $request->carOnrent,
+            'cityName' => $request->cityName,
+            'bookingDate' => $request->bookingDate
+        ])->where('hourly', '<', $request->fromTime)->get();
+
+        if ($if_hourly != "") {
+            foreach ($if_hourly as $hourlyValue) {
+                
+            }
+        }
         // hourly
         // bookingType 2 = hourly
         // hourly 1 = fromTime, hourly 2 = toTime
-        $if_hourly = CarOnRent::where([
-            'cityName' => $request->cityName,
-            'carName' => $request->carName,
-            'bookingDate' => $request->bookingDate,
-            'bookingType' => '2'
-        ])->first();
-        if ($if_hourly != "") {
-            return redirect('bookCar')->with('message', 'This schedule is already booked');
-        }
-        $bookHourly = new CarOnRent;
-        if ($request->bookingType == 2) {
-            $is_hourly = CarOnRent::where([
-                'cityName' => $request->cityName,
-                'carName' => $request->carName,
-                'bookingDate' => $request->bookingDate
-            ])->first();
-            if ($is_hourly != "") {
-                return redirect('bookCar', 'This schedule is already booked');
-                // dd('running');
-            } else {
-                $bookHourly = new CarOnRent;
-                $bookHourly->cityName = $request->cityName;
-                $bookHourly->carName = $request->carName;
-                $bookHourly->bookingDate = $request->bookingDate;
-                $bookHourly->bookingType = $request->bookingType;
-                $bookHourly->halfDay = $request->halfDay;
-                $bookHourly->hourly = $request->hourly;
-                $bookHourly->fromTime = $request->fromTime;
-                $bookHourly->toTime = $request->toTime;
-                $bookHourly->destination = $request->destination;
-                $bookHourly->save();
-                return redirect('viewBooking')->with('message', 'Your booking has been done on your time');
-            }
-        }
+
         // end of hourly
     }
 
