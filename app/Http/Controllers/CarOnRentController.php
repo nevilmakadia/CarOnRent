@@ -90,7 +90,8 @@ class CarOnRentController extends Controller
                 $if_firstHalf = CarOnRent::where([
                     'cityName' => $request->cityName,
                     'carName' => $request->carName,
-                    'bookingDate' => $request->bookingDate
+                    'bookingDate' => $request->bookingDate,
+                    'bookingType' => $request->bookingType
                 ])->first();
 
                 if ($if_firstHalf) {
@@ -117,7 +118,8 @@ class CarOnRentController extends Controller
                 $if_secondHalf = CarOnRent::where([
                     'cityName' => $request->cityName,
                     'carName' => $request->carName,
-                    'bookingDate' => $request->bookingDate
+                    'bookingDate' => $request->bookingDate,
+                    'bookingType' => $request->bookingType
                 ])->first();
 
                 if ($if_secondHalf) {
@@ -235,7 +237,6 @@ class CarOnRentController extends Controller
 
         if ($if_hourly != "") {
             foreach ($if_hourly as $hourlyValue) {
-                
             }
         }
         // hourly

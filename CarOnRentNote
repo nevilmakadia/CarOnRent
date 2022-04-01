@@ -15,3 +15,20 @@ Task    : Laravel/CarOnRent
 Day     : 30/03/2022
 Todo    : Update halfDay and hourly
 Done    : halfDay done, hourly insertion done
+
+01-04-2022
+
+10:13am :
+problem -> server 500 error
+cause -> .env file name error
+solution -> change file name .env.example to .env and set database name
+
+10:20am :
+problem -> SQLSTATE[HY000] [2002] Connection refused
+solution -> restart xampp
+
+10:27am :
+problem -> apache web server stopped
+solution -> sudo service apache2 stop and restart
+
+10:50am : work on hourly booking
