@@ -110,9 +110,9 @@
                     <div id="halfDayTime">
                         <select name="halfDay" class="form-control">
                             <option value="" class="form-group" selected disabled>Select Time</option>
-                            <option value="1" class="form-group text-success">09:00am To 01:00pm
+                            <option value="1" class="form-group text-success">09:00 To 13:00
                             </option>
-                            <option value="2" class="form-group text-success">02:00pm To 09:00pm
+                            <option value="2" class="form-group text-success">14:00 To 21:00
                             </option>
                         </select>
                     </div>
@@ -121,32 +121,30 @@
                     <div id="hourlyTime">
                         From: <select name="fromTime" class="form-control">
                             <option value="" class="form-group" selected disabled>Select Time</option>
-                            <option value="09:00am" class="form-group text-primary">09:00am</option>
-                            <option value="10:00am" class="form-group text-primary">10:00am</option>
-                            <option value="11:00am" class="form-group text-primary">11:00am</option>
-                            <option value="12:00pm" class="form-group text-primary">12:00pm</option>
-                            <option value="" class="form-group" disabled> > Break Time < </option>
-                            <option value="02:00pm" class="form-group text-primary">02:00pm</option>
-                            <option value="03:00pm" class="form-group text-primary">03:00pm</option>
-                            <option value="04:00pm" class="form-group text-primary">04:00pm</option>
-                            <option value="05:00pm" class="form-group text-primary">05:00pm</option>
-                            <option value="06:00pm" class="form-group text-primary">06:00pm</option>
-                            <option value="07:00pm" class="form-group text-primary">07:00pm</option>
-                            <option value="08:00pm" class="form-group text-primary">08:00pm</option>
+                            <option value="09:00" class="form-group text-primary">09:00</option>
+                            <option value="10:00" class="form-group text-primary">10:00</option>
+                            <option value="11:00" class="form-group text-primary">11:00</option>
+                            <option value="12:00" class="form-group text-primary">12:00</option>
+                            <option value="14:00" class="form-group text-primary">14:00</option>
+                            <option value="15:00" class="form-group text-primary">15:00</option>
+                            <option value="16:00" class="form-group text-primary">16:00</option>
+                            <option value="17:00" class="form-group text-primary">17:00</option>
+                            <option value="18:00" class="form-group text-primary">18:00</option>
+                            <option value="19:00" class="form-group text-primary">19:00</option>
+                            <option value="20:00" class="form-group text-primary">20:00</option>
                         </select>
                         To: <select name="toTime" class="form-control">
                             <option value="" class="form-group" selected disabled>Select Time</option>
-                            <option value="10:00am" class="form-group text-primary">10:00am</option>
-                            <option value="11:00am" class="form-group text-primary">11:00am</option>
-                            <option value="12:00pm" class="form-group text-primary">12:00pm</option>
-                            <option value="" class="form-group" disabled> > Break Time < </option>
-                            <option value="03:00pm" class="form-group text-primary">03:00pm</option>
-                            <option value="04:00pm" class="form-group text-primary">04:00pm</option>
-                            <option value="05:00pm" class="form-group text-primary">05:00pm</option>
-                            <option value="06:00pm" class="form-group text-primary">06:00pm</option>
-                            <option value="07:00pm" class="form-group text-primary">07:00pm</option>
-                            <option value="08:00pm" class="form-group text-primary">08:00pm</option>
-                            <option value="09:00pm" class="form-group text-primary">09:00pm</option>
+                            <option value="10:00" class="form-group text-primary">10:00</option>
+                            <option value="11:00" class="form-group text-primary">11:00</option>
+                            <option value="12:00" class="form-group text-primary">12:00</option>
+                            <option value="15:00" class="form-group text-primary">15:00</option>
+                            <option value="16:00" class="form-group text-primary">16:00</option>
+                            <option value="17:00" class="form-group text-primary">17:00</option>
+                            <option value="18:00" class="form-group text-primary">18:00</option>
+                            <option value="19:00" class="form-group text-primary">19:00</option>
+                            <option value="20:00" class="form-group text-primary">20:00</option>
+                            <option value="21:00" class="form-group text-primary">21:00</option>
                         </select>
                     </div>
                 </div>

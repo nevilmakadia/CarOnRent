@@ -50,7 +50,7 @@ class CarOnRentController extends Controller
                 'bookingDate' => $request->bookingDate
             ])->first();
             if ($is_fullDay != "") {
-                return redirect('bookCar')->with('message', 'This schedule is already booked for another session    ');
+                return redirect('bookCar')->with('message', 'This schedule is already booked for another session');
             } else {
                 // $bookFullDay = new CarOnRent;
                 $bookFullDay->cityName = $request->cityName;
@@ -77,8 +77,7 @@ class CarOnRentController extends Controller
                     'cityName' => $request->cityName,
                     'carName' => $request->carName,
                     'bookingDate' => $request->bookingDate,
-                    'bookingType' => '1',
-                    'halfDay' => '1'
+                    'bookingType' => $request->bookingType,
                 ])->first();
 
                 if ($if_firstHalf) {
@@ -101,13 +100,11 @@ class CarOnRentController extends Controller
 
             // secondHalf
             if ($request->halfDay == '2') {
-
                 $if_secondHalf = CarOnRent::where([
                     'cityName' => $request->cityName,
                     'carName' => $request->carName,
                     'bookingDate' => $request->bookingDate,
-                    'bookingType' => '1',
-                    'halfDay' => '2'
+                    'bookingType' => $request->bookingType,
                 ])->first();
 
                 if ($if_secondHalf) {
@@ -134,31 +131,6 @@ class CarOnRentController extends Controller
         // bookingType 2 = hourly
         // hourly 1 = fromTime, hourly 2 = toTime
         $bookHourly = new CarOnRent;
-        $fromTime = array(
-            '09:00am',
-            '10:00am',
-            '11:00am',
-            '12:00pm',
-            '02:00pm',
-            '03:00pm',
-            '04:00pm',
-            '05:00pm',
-            '06:00pm',
-            '07:00pm',
-            '08:00pm',
-        );
-        $toTime = array(
-            '10:00am',
-            '11:00am',
-            '12:00pm',
-            '03:00pm',
-            '04:00pm',
-            '05:00pm',
-            '06:00pm',
-            '07:00pm',
-            '08:00pm',
-            '09:00pm',
-        );
         if ($request->bookingType == 2) {
             $if_hourly = CarOnRent::where([
                 'cityName' => $request->cityName,
@@ -166,9 +138,7 @@ class CarOnRentController extends Controller
                 'bookingDate' => $request->bookingDate,
                 'bookingType' => $request->bookingType,
                 'fromTime' => $request->fromTime,
-                'toTime' => $request->toTime,
-                'fromTime' => $fromTime,
-                'toTime' => $toTime
+                'toTime' => $request->toTime
             ])->first();
             if ($if_hourly) {
                 return redirect('bookCar')->with('message', 'This schedule is already booked for this session');
