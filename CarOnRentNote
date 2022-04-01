@@ -22,13 +22,22 @@ Done    : halfDay done, hourly insertion done
 problem -> server 500 error
 cause -> .env file name error
 solution -> change file name .env.example to .env and set database name
+status -> done
 
 10:20am :
 problem -> SQLSTATE[HY000] [2002] Connection refused
 solution -> restart xampp
+status -> done
 
 10:27am :
 problem -> apache web server stopped
 solution -> sudo service apache2 stop and restart
+status -> done
 
-10:50am : work on hourly booking
+10:50am : work on half day booking
+status -> done
+
+11:20am : hourly booking start
+status -> in progress
+error -> can not make booking on free time
+

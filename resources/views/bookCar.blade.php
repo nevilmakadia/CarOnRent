@@ -121,18 +121,18 @@
                     <div id="hourlyTime">
                         From: <select name="fromTime" class="form-control">
                             <option value="" class="form-group" selected disabled>Select Time</option>
-                            <option value="09:00am To" class="form-group text-primary">09:00am</option>
-                            <option value="10:00am To" class="form-group text-primary">10:00am</option>
-                            <option value="11:00am To" class="form-group text-primary">11:00am</option>
-                            <option value="12:00pm To" class="form-group text-primary">12:00pm</option>
+                            <option value="09:00am" class="form-group text-primary">09:00am</option>
+                            <option value="10:00am" class="form-group text-primary">10:00am</option>
+                            <option value="11:00am" class="form-group text-primary">11:00am</option>
+                            <option value="12:00pm" class="form-group text-primary">12:00pm</option>
                             <option value="" class="form-group" disabled> > Break Time < </option>
-                            <option value="02:00pm To" class="form-group text-primary">02:00pm</option>
-                            <option value="03:00pm To" class="form-group text-primary">03:00pm</option>
-                            <option value="04:00pm To" class="form-group text-primary">04:00pm</option>
-                            <option value="05:00pm To" class="form-group text-primary">05:00pm</option>
-                            <option value="06:00pm To" class="form-group text-primary">06:00pm</option>
-                            <option value="07:00pm To" class="form-group text-primary">07:00pm</option>
-                            <option value="08:00pm To" class="form-group text-primary">08:00pm</option>
+                            <option value="02:00pm" class="form-group text-primary">02:00pm</option>
+                            <option value="03:00pm" class="form-group text-primary">03:00pm</option>
+                            <option value="04:00pm" class="form-group text-primary">04:00pm</option>
+                            <option value="05:00pm" class="form-group text-primary">05:00pm</option>
+                            <option value="06:00pm" class="form-group text-primary">06:00pm</option>
+                            <option value="07:00pm" class="form-group text-primary">07:00pm</option>
+                            <option value="08:00pm" class="form-group text-primary">08:00pm</option>
                         </select>
                         To: <select name="toTime" class="form-control">
                             <option value="" class="form-group" selected disabled>Select Time</option>
