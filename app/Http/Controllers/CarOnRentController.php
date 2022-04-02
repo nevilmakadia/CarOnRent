@@ -4,10 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\CarOnRent;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
-use Prophecy\Argument\Token\InArrayToken;
-use Symfony\Contracts\Service\Attribute\Required;
-use Symfony\Component\Console\Input\Input;
 
 class CarOnRentController extends Controller
 {
@@ -78,7 +74,7 @@ class CarOnRentController extends Controller
                     'carName' => $request->carName,
                     'bookingDate' => $request->bookingDate,
                     'bookingType' => $request->bookingType,
-                    'halfDay' => $request->halfDay
+                    'halfDay' => $request->halfDay,
                 ])->first();
 
                 if ($if_firstHalf) {
@@ -127,7 +123,7 @@ class CarOnRentController extends Controller
                 }
             }
         }
-        // end of hlafDay
+        // end of halfDay
 
         // hourly
         // bookingType 2 = hourly
@@ -145,7 +141,7 @@ class CarOnRentController extends Controller
             if ($if_hourly) {
                 return redirect('bookCar')->with('message', 'This schedule is already booked for this session');
             } elseif ($request->fromTime > $request->toTime) {
-                return redirect('bookCar')->with('message', 'END time shoud be more than START time');
+                return redirect('bookCar')->with('message', 'END time shoud be GREATER than START time');
             } elseif ($request->fromTime == $request->toTime) {
                 return redirect('bookCar')->with('message', 'START TIME or END TIME can not be same');
             } else {

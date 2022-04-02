@@ -56,7 +56,9 @@
                         {{ $carList->bookingType }}</td>
                     <td class="text-danger" title="halfDay 1 = firstHalf, halfDay 2 = secondHalf">
                         {{ $carList->halfDay }}</td>
-                    <td class="text-success">{{ $carList->fromTime }} {{ $carList->toTime }}</td>
+                    <td class="text-success" title="fromTime toTime ">
+                        {{ $carList->fromTime . ' ' . $carList->toTime }}
+                    </td>
                     <td class="text-secondary">{{ $carList->destination }}</td>
                     <td class="text-success">{{ $carList->created_at }}</td>
                     <td class="text-danger">
