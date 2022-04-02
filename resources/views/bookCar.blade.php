@@ -138,6 +138,7 @@
                             <option value="10:00" class="form-group text-primary">10:00</option>
                             <option value="11:00" class="form-group text-primary">11:00</option>
                             <option value="12:00" class="form-group text-primary">12:00</option>
+                            <option value="12:00" class="form-group text-primary">13:00</option>
                             <option value="15:00" class="form-group text-primary">15:00</option>
                             <option value="16:00" class="form-group text-primary">16:00</option>
                             <option value="17:00" class="form-group text-primary">17:00</option>

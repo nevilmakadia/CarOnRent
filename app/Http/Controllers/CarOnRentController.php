@@ -78,6 +78,7 @@ class CarOnRentController extends Controller
                     'carName' => $request->carName,
                     'bookingDate' => $request->bookingDate,
                     'bookingType' => $request->bookingType,
+                    'halfDay' => $request->halfDay
                 ])->first();
 
                 if ($if_firstHalf) {
@@ -105,6 +106,7 @@ class CarOnRentController extends Controller
                     'carName' => $request->carName,
                     'bookingDate' => $request->bookingDate,
                     'bookingType' => $request->bookingType,
+                    'halfDay' => $request->halfDay
                 ])->first();
 
                 if ($if_secondHalf) {
