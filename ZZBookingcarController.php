@@ -113,24 +113,17 @@ class CarOnRentController extends Controller
                 ];
 
                 if ($request->booking_halfday == "8:00 to 13:00") {
-
-
                     $is_valid = CarOnRent::where([
-
                         'citys_name' => $request->booking_citys,
                         'cars_name' => $request->booking_cars,
                         'pickup_date' => $request->booking_date,
                         'booking_type' => 'Hourly'
-
                     ])->whereIn('hourly', $array1)
                         ->first();
-
-
                     if (!empty($is_valid)) {
                         $error = "Car is already booked for hourly  this time period";
                         return Redirect()->route('index')->withErrors([$error]);
                     }
-
                     $booking = new CarOnRent;
                     $booking->citys_name = $request->booking_citys;
                     $booking->cars_name = $request->booking_cars;
@@ -157,7 +150,6 @@ class CarOnRentController extends Controller
                         $error = "Car is already booked for second half period this time period";
                         return Redirect()->route('index')->withErrors([$error]);
                     }
-
                     $booking = new CarOnRent;
                     $booking->citys_name = $request->booking_citys;
                     $booking->cars_name = $request->booking_cars;
@@ -238,6 +230,7 @@ class CarOnRentController extends Controller
             }
         }
         //------------------------------------------------------------------------------------------------
+        
         //------------------------------------------------------------------------------------------------
 
         if (in_array($request->booking_hourlytwo, $array1)) {

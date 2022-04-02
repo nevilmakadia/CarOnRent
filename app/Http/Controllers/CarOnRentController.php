@@ -67,60 +67,27 @@ class CarOnRentController extends Controller
         // halfDay
         $bookHalf = new CarOnRent;
         if ($request->bookingType == 1) {
-            // firstHalf
-            if ($request->halfDay == '1') {
-                $if_firstHalf = CarOnRent::where([
-                    'cityName' => $request->cityName,
-                    'carName' => $request->carName,
-                    'bookingDate' => $request->bookingDate,
-                    'bookingType' => $request->bookingType,
-                    'halfDay' => $request->halfDay,
-                ])->first();
-
-                if ($if_firstHalf) {
-                    return redirect('bookCar')->with('message', 'This schedule is already booked for first half');
-                } else {
-                    // $bookHalf = new CarOnRent;
-                    $bookHalf->cityName = $request->cityName;
-                    $bookHalf->carName = $request->carName;
-                    $bookHalf->bookingDate = $request->bookingDate;
-                    $bookHalf->bookingType = $request->bookingType;
-                    $bookHalf->halfDay = $request->halfDay;
-                    $bookHalf->hourly = $request->hourly;
-                    $bookHalf->fromTime = $request->fromTime;
-                    $bookHalf->toTime = $request->toTime;
-                    $bookHalf->destination = $request->destination;
-                    $bookHalf->save();
-                    return redirect('viewBooking')->with('message', 'Your booking has been done for FIRST HALF');
-                }
-            }
-
-            // secondHalf
-            if ($request->halfDay == '2') {
-                $if_secondHalf = CarOnRent::where([
-                    'cityName' => $request->cityName,
-                    'carName' => $request->carName,
-                    'bookingDate' => $request->bookingDate,
-                    'bookingType' => $request->bookingType,
-                    'halfDay' => $request->halfDay
-                ])->first();
-
-                if ($if_secondHalf) {
-                    return redirect('bookCar')->with('message', 'This schedule is already booked for second half');
-                } else {
-                    $bookHalf = new CarOnRent;
-                    $bookHalf->cityName = $request->cityName;
-                    $bookHalf->carName = $request->carName;
-                    $bookHalf->bookingDate = $request->bookingDate;
-                    $bookHalf->bookingType = $request->bookingType;
-                    $bookHalf->halfDay = $request->halfDay;
-                    $bookHalf->hourly = $request->hourly;
-                    $bookHalf->fromTime = $request->fromTime;
-                    $bookHalf->toTime = $request->toTime;
-                    $bookHalf->destination = $request->destination;
-                    $bookHalf->save();
-                    return redirect('viewBooking')->with('message', 'Your booking has been done for SECOND HALF');
-                }
+            $if_halfDay = CarOnRent::where([
+                'cityName' => $request->cityName,
+                'carName' => $request->carName,
+                'bookingDate' => $request->bookingDate,
+                'bookingType' => $request->bookingType,
+                'halfDay' => $request->halfDay,
+            ])->first();
+            if ($if_halfDay) {
+                return redirect('bookCar')->with('message', 'This schedule is already booked for Half Day');
+            } else {
+                $bookHalf->cityName = $request->cityName;
+                $bookHalf->carName = $request->carName;
+                $bookHalf->bookingDate = $request->bookingDate;
+                $bookHalf->bookingType = $request->bookingType;
+                $bookHalf->halfDay = $request->halfDay;
+                $bookHalf->hourly = $request->hourly;
+                $bookHalf->fromTime = $request->fromTime;
+                $bookHalf->toTime = $request->toTime;
+                $bookHalf->destination = $request->destination;
+                $bookHalf->save();
+                return redirect('viewBooking')->with('message', 'Your booking has been done for HALF DAY');
             }
         }
         // end of halfDay
@@ -139,7 +106,7 @@ class CarOnRentController extends Controller
                 'toTime' => $request->toTime
             ])->first();
             if ($if_hourly) {
-                return redirect('bookCar')->with('message', 'This schedule is already booked for this session');
+                return redirect('bookCar')->with('message', 'This schedule is already booked for this hourly session');
             } elseif ($request->fromTime > $request->toTime) {
                 return redirect('bookCar')->with('message', 'END time shoud be GREATER than START time');
             } elseif ($request->fromTime == $request->toTime) {
