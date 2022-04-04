@@ -39,7 +39,7 @@
                 <td class="text-danger">Booking Date</td>
                 <td class="text-primary"
                     title="bookingType 0 = Full Day, bookingType 1 = Half Day, bookingType 2 = Hourly">Booking Type</td>
-                <td class="text-danger" title="halfDay 1 = firstHalf, halfDay 2 = secondHalf">Half Day</td>
+                <td class="text-danger">Half Day</td>
                 <td class="text-success">Hourly</td>
                 <td class="text-secondary">Destination</td>
                 <td class="text-success">Booked On</td>
@@ -51,20 +51,14 @@
                     <td class="text-success">{{ $carList->cityName }}</td>
                     <td class="text-primary">{{ $carList->carName }}</td>
                     <td class="text-danger">{{ $carList->bookingDate }}</td>
-                    <td class="text-primary"
-                        title="bookingType 0 = Full Day, bookingType 1 = Half Day, bookingType 2 = Hourly">
-                        {{ $carList->bookingType }}</td>
-                    <td class="text-danger" title="halfDay 1 = firstHalf, halfDay 2 = secondHalf">
-                        {{ $carList->halfDay }}</td>
-                    <td class="text-success" title="fromTime toTime ">
-                        {{ $carList->fromTime . ' ' . $carList->toTime }}
-                    </td>
+                    <td class="text-primary">{{ $carList->bookingType }}</td>
+                    <td class="text-danger">{{ $carList->halfDay }}</td>
+                    <td class="text-success">{{ $carList->hourly }}</td>
                     <td class="text-secondary">{{ $carList->destination }}</td>
                     <td class="text-success">{{ $carList->created_at }}</td>
                     <td class="text-danger">
                         <a href="deleteBooking/{{ $carList->id }}" class="btn btn-danger"><i
-                                class="bi bi-trash"></i> Delete
-                        </a>
+                                class="bi bi-trash"></i> Delete</a>
                     </td>
                 </tr>
             @endforeach

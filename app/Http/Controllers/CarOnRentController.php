@@ -54,7 +54,7 @@ class CarOnRentController extends Controller
                 $bookFullDay->bookingDate = $request->bookingDate;
                 $bookFullDay->bookingType = $request->bookingType;
                 $bookFullDay->halfDay = $request->halfDay;
-                $bookFullDay->hourly = $request->hourly;
+                $bookFullDay->hourly = $request->fromTime . " " . $request->toTime;
                 $bookFullDay->fromTime = $request->fromTime;
                 $bookFullDay->toTime = $request->toTime;
                 $bookFullDay->destination = $request->destination;
@@ -62,7 +62,7 @@ class CarOnRentController extends Controller
                 return redirect('viewBooking')->with('message', 'Your booking has been done for full day');
             }
         }
-        // end of fullDay
+        // end of fullDay ----------------------------------------------------------------------------------------------------------
 
         // halfDay
         $bookHalf = new CarOnRent;
@@ -82,15 +82,16 @@ class CarOnRentController extends Controller
                 $bookHalf->bookingDate = $request->bookingDate;
                 $bookHalf->bookingType = $request->bookingType;
                 $bookHalf->halfDay = $request->halfDay;
-                $bookHalf->hourly = $request->hourly;
-                $bookHalf->fromTime = $request->fromTime;
-                $bookHalf->toTime = $request->toTime;
+                $hours = explode(" ", $request->halfDay);
+                $bookHalf->hourly = $request->fromTime . " " . $request->toTime;
+                $bookHalf->fromTime = $hours[0];
+                $bookHalf->toTime = $hours[1];
                 $bookHalf->destination = $request->destination;
                 $bookHalf->save();
                 return redirect('viewBooking')->with('message', 'Your booking has been done for HALF DAY');
             }
         }
-        // end of halfDay
+        // end of halfDay ----------------------------------------------------------------------------------------------------------
 
         // hourly
         // bookingType 2 = hourly
@@ -102,6 +103,7 @@ class CarOnRentController extends Controller
                 'carName' => $request->carName,
                 'bookingDate' => $request->bookingDate,
                 'bookingType' => $request->bookingType,
+                // 'hourly' => $request->hourly,
                 'fromTime' => $request->fromTime,
                 'toTime' => $request->toTime
             ])->first();
@@ -118,7 +120,7 @@ class CarOnRentController extends Controller
                 $bookHourly->bookingDate = $request->bookingDate;
                 $bookHourly->bookingType = $request->bookingType;
                 $bookHourly->halfDay = $request->halfDay;
-                $bookHourly->hourly = $request->hourly;
+                $bookHourly->hourly = $request->fromTime . " " . $request->toTime;
                 $bookHourly->fromTime = $request->fromTime;
                 $bookHourly->toTime = $request->toTime;
                 $bookHourly->destination = $request->destination;
@@ -126,7 +128,7 @@ class CarOnRentController extends Controller
                 return redirect('viewBooking')->with('message', 'Your booking has been done for HOURLY');
             }
         }
-        // end of hourly
+        // end of hourly -----------------------------------------------------------------------------------------------------------
     }
 
     public function show(CarOnRent $carOnRent)

@@ -110,9 +110,9 @@
                     <div id="halfDayTime">
                         <select name="halfDay" class="form-control">
                             <option value="" class="form-group" selected disabled>Select Time</option>
-                            <option value="1" class="form-group text-success">09:00 To 13:00
+                            <option value="09:00 13:00" class="form-group text-success">09:00 To 13:00
                             </option>
-                            <option value="2" class="form-group text-success">14:00 To 21:00
+                            <option value="14:00 21:00" class="form-group text-success">14:00 To 21:00
                             </option>
                         </select>
                     </div>
