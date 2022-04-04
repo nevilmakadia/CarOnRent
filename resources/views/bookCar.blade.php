@@ -64,7 +64,7 @@
             <div class="row mb-2">
 
                 {{-- bookingDate --}}
-                <div class="col-sm-6">
+                <div class="col-sm-6" id='datetimepicker'>
                     <label class="form-label">Select Journey Date:<span class="text-danger"> *</span></label>
                     <input type="date" name="bookingDate" class="form-control">
                     <span class="text-danger">
