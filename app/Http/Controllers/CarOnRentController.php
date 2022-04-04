@@ -73,6 +73,8 @@ class CarOnRentController extends Controller
                 'bookingDate' => $request->bookingDate,
                 'bookingType' => $request->bookingType,
                 'halfDay' => $request->halfDay,
+                'fromTime' => $request->fromTime,
+                'toTime' => $request->toTime
             ])->first();
             if ($if_halfDay) {
                 return redirect('bookCar')->with('message', 'This schedule is already booked for Half Day');
@@ -102,7 +104,7 @@ class CarOnRentController extends Controller
                 'cityName' => $request->cityName,
                 'carName' => $request->carName,
                 'bookingDate' => $request->bookingDate,
-                'bookingType' => $request->bookingType,
+                // 'bookingType' => $request->bookingType,
                 // 'hourly' => $request->hourly,
                 'fromTime' => $request->fromTime,
                 'toTime' => $request->toTime
