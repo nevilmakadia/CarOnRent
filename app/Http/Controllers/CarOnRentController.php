@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\CarOnRent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redis;
+use SebastianBergmann\Environment\Console;
 
 class CarOnRentController extends Controller
 {
@@ -84,7 +87,7 @@ class CarOnRentController extends Controller
                 $bookHalf->bookingDate = $request->bookingDate;
                 $bookHalf->bookingType = $request->bookingType;
                 $bookHalf->halfDay = $request->halfDay;
-                $hours = explode(" ", $request->halfDay);
+                $hours = explode("-", $request->halfDay);
                 $bookHalf->hourly = $request->fromTime . " " . $request->toTime;
                 $bookHalf->fromTime = $hours[0];
                 $bookHalf->toTime = $hours[1];
@@ -109,8 +112,12 @@ class CarOnRentController extends Controller
                 'fromTime' => $request->fromTime,
                 'toTime' => $request->toTime
             ])->first();
-            if ($if_hourly) {
+            $startTime = '';
+            $endTime = '';
+            if ($if_hourly != "") {
                 return redirect('bookCar')->with('message', 'This schedule is already booked for this hourly session');
+            } elseif ($request->fromTime > $startTime && $request->toTime < $endTime) {
+                return redirect('bookCar')->with('message', 'This schedule is already booked');
             } elseif ($request->fromTime > $request->toTime) {
                 return redirect('bookCar')->with('message', 'END time shoud be GREATER than START time');
             } elseif ($request->fromTime == $request->toTime) {
@@ -122,7 +129,7 @@ class CarOnRentController extends Controller
                 $bookHourly->bookingDate = $request->bookingDate;
                 $bookHourly->bookingType = $request->bookingType;
                 $bookHourly->halfDay = $request->halfDay;
-                $bookHourly->hourly = $request->fromTime . " " . $request->toTime;
+                $bookHourly->hourly = $request->fromTime . "-" . $request->toTime;
                 $bookHourly->fromTime = $request->fromTime;
                 $bookHourly->toTime = $request->toTime;
                 $bookHourly->destination = $request->destination;
