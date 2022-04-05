@@ -65,7 +65,7 @@ class CarOnRentController extends Controller
                 return redirect('viewBooking')->with('message', 'Your booking has been done for full day');
             }
         }
-        // end of fullDay ----------------------------------------------------------------------------------------------------------
+        // end of fullDay
 
         // halfDay
         $bookHalf = new CarOnRent;
@@ -96,7 +96,7 @@ class CarOnRentController extends Controller
                 return redirect('viewBooking')->with('message', 'Your booking has been done for HALF DAY');
             }
         }
-        // end of halfDay ----------------------------------------------------------------------------------------------------------
+        // end of halfDay
 
         // hourly
         // bookingType 2 = hourly
@@ -107,13 +107,12 @@ class CarOnRentController extends Controller
                 'cityName' => $request->cityName,
                 'carName' => $request->carName,
                 'bookingDate' => $request->bookingDate,
-                // 'bookingType' => $request->bookingType,
-                // 'hourly' => $request->hourly,
                 'fromTime' => $request->fromTime,
                 'toTime' => $request->toTime
             ])->first();
-            $startTime = '';
-            $endTime = '';
+            $startTime = 9;
+            $endTime = 13;
+
             if ($if_hourly != "") {
                 return redirect('bookCar')->with('message', 'This schedule is already booked for this hourly session');
             } elseif ($request->fromTime > $startTime && $request->toTime < $endTime) {
@@ -137,7 +136,7 @@ class CarOnRentController extends Controller
                 return redirect('viewBooking')->with('message', 'Your booking has been done for HOURLY');
             }
         }
-        // end of hourly -----------------------------------------------------------------------------------------------------------
+        // end of hourly
     }
 
     public function show(CarOnRent $carOnRent)
