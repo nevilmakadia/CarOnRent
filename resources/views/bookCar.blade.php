@@ -27,7 +27,7 @@
                 <div class="col-sm-6">
                     <label class="form-label">Select City:<span class="text-danger"> *</span></label>
                     <select name="cityName" class="form-control">
-                        {{-- <option value="" class="form-group" disabled selected>Select City</option> --}}
+                        <option value="" class="form-group" disabled selected>Select City</option>
                         <option value="Rajkot" class="form-group text-primary">Rajkot</option>
                         <option value="Morbi" class="form-group text-secondary">Morbi</option>
                         <option value="Ahmedabad" class="form-group text-success">Ahmedabad</option>
@@ -46,7 +46,7 @@
                 <div class="col-sm-6">
                     <label class="form-label">Select Car:<span class="text-danger"> *</span></label>
                     <select name="carName" class="form-control">
-                        {{-- <option value="" class="form-group" disabled selected>Select Car</option> --}}
+                        <option value="" class="form-group" disabled selected>Select Car</option>
                         <option value="Hyundai Verna" class="form-group text-primary">Hyundai Verna</option>
                         <option value="Suzuki Ciaz" class="form-group text-secondary">Suzuki Ciaz</option>
                         <option value="Mahindra Thar" class="form-group text-success">Mahindra Thar</option>
@@ -66,7 +66,7 @@
                 {{-- bookingDate --}}
                 <div class="col-sm-6" id='datetimepicker'>
                     <label class="form-label">Select Journey Date:<span class="text-danger"> *</span></label>
-                    <input type="date" name="bookingDate" class="form-control" value="2022-04-05">
+                    <input type="date" name="bookingDate" class="form-control">
                     <span class="text-danger">
                         @error('bookingDate')
                             {{ $message }}
@@ -77,7 +77,7 @@
                 {{-- destination --}}
                 <div class="col-sm-6">
                     <label class="form-label">Enter Destination:<span class="text-danger"> *</span></label>
-                    <input type="text" name="destination" class="form-control" placeholder="Enter Destination" value="Surat">
+                    <input type="text" name="destination" class="form-control" placeholder="Enter Destination">
                     <span class="text-danger">
                         @error('destination')
                             {{ $message }}
