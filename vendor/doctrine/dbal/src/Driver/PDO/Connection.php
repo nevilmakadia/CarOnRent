@@ -15,12 +15,9 @@ use function assert;
 
 final class Connection implements ServerInfoAwareConnection
 {
-    /** @var PDO */
-    private $connection;
+    private PDO $connection;
 
-    /**
-     * @internal The connection can be only instantiated by its driver.
-     */
+    /** @internal The connection can be only instantiated by its driver. */
     public function __construct(PDO $connection)
     {
         $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -99,7 +96,7 @@ final class Connection implements ServerInfoAwareConnection
             Deprecation::triggerIfCalledFromOutside(
                 'doctrine/dbal',
                 'https://github.com/doctrine/dbal/issues/4687',
-                'The usage of Connection::lastInsertId() with a sequence name is deprecated.'
+                'The usage of Connection::lastInsertId() with a sequence name is deprecated.',
             );
 
             return $this->connection->lastInsertId($name);
@@ -128,16 +125,14 @@ final class Connection implements ServerInfoAwareConnection
         return $this->connection;
     }
 
-    /**
-     * @deprecated Call {@see getNativeConnection()} instead.
-     */
+    /** @deprecated Call {@see getNativeConnection()} instead. */
     public function getWrappedConnection(): PDO
     {
         Deprecation::triggerIfCalledFromOutside(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5037',
             '%s is deprecated, call getNativeConnection() instead.',
-            __METHOD__
+            __METHOD__,
         );
 
         return $this->getNativeConnection();
