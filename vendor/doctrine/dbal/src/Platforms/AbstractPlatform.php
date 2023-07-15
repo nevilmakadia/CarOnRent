@@ -1705,7 +1705,7 @@ abstract class AbstractPlatform
      * @param string             $operator The arithmetic operator (+ or -).
      * @param int|numeric-string $interval The interval that shall be calculated into the date.
      * @param string             $unit     The unit of the interval that shall be calculated into the date.
-     *                                     One of the DATE_INTERVAL_UNIT_* constants.
+     *                                     One of the {@see DateIntervalUnit} constants.
      *
      * @return string
      *
@@ -4155,7 +4155,7 @@ abstract class AbstractPlatform
      */
     public function supportsCreateDropDatabase()
     {
-        Deprecation::trigger(
+        Deprecation::triggerIfCalledFromOutside(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/5513',
             '%s is deprecated.',
