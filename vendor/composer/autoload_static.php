@@ -98,6 +98,7 @@ class ComposerStaticInita802dae034a6ade3249acd30e360b118
             'Psr\\Http\\Client\\' => 16,
             'Psr\\EventDispatcher\\' => 20,
             'Psr\\Container\\' => 14,
+            'Psr\\Clock\\' => 10,
             'Psr\\Cache\\' => 10,
             'PhpParser\\' => 10,
             'PhpOption\\' => 10,
@@ -332,8 +333,8 @@ class ComposerStaticInita802dae034a6ade3249acd30e360b118
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -346,6 +347,10 @@ class ComposerStaticInita802dae034a6ade3249acd30e360b118
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Psr\\Clock\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/clock/src',
         ),
         'Psr\\Cache\\' => 
         array (
@@ -3437,6 +3442,7 @@ class ComposerStaticInita802dae034a6ade3249acd30e360b118
         'League\\Flysystem\\Util\\MimeType' => __DIR__ . '/..' . '/league/flysystem/src/Util/MimeType.php',
         'League\\Flysystem\\Util\\StreamHasher' => __DIR__ . '/..' . '/league/flysystem/src/Util/StreamHasher.php',
         'League\\MimeTypeDetection\\EmptyExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/EmptyExtensionToMimeTypeMap.php',
+        'League\\MimeTypeDetection\\ExtensionLookup' => __DIR__ . '/..' . '/league/mime-type-detection/src/ExtensionLookup.php',
         'League\\MimeTypeDetection\\ExtensionMimeTypeDetector' => __DIR__ . '/..' . '/league/mime-type-detection/src/ExtensionMimeTypeDetector.php',
         'League\\MimeTypeDetection\\ExtensionToMimeTypeMap' => __DIR__ . '/..' . '/league/mime-type-detection/src/ExtensionToMimeTypeMap.php',
         'League\\MimeTypeDetection\\FinfoMimeTypeDetector' => __DIR__ . '/..' . '/league/mime-type-detection/src/FinfoMimeTypeDetector.php',
@@ -3694,6 +3700,7 @@ class ComposerStaticInita802dae034a6ade3249acd30e360b118
         'Nette\\Utils\\IHtmlString' => __DIR__ . '/..' . '/nette/utils/src/compatibility.php',
         'Nette\\Utils\\Image' => __DIR__ . '/..' . '/nette/utils/src/Utils/Image.php',
         'Nette\\Utils\\ImageException' => __DIR__ . '/..' . '/nette/utils/src/Utils/exceptions.php',
+        'Nette\\Utils\\ImageType' => __DIR__ . '/..' . '/nette/utils/src/Utils/ImageType.php',
         'Nette\\Utils\\Json' => __DIR__ . '/..' . '/nette/utils/src/Utils/Json.php',
         'Nette\\Utils\\JsonException' => __DIR__ . '/..' . '/nette/utils/src/Utils/exceptions.php',
         'Nette\\Utils\\ObjectHelpers' => __DIR__ . '/..' . '/nette/utils/src/Utils/ObjectHelpers.php',
@@ -4425,6 +4432,7 @@ class ComposerStaticInita802dae034a6ade3249acd30e360b118
         'Psr\\Cache\\CacheItemInterface' => __DIR__ . '/..' . '/psr/cache/src/CacheItemInterface.php',
         'Psr\\Cache\\CacheItemPoolInterface' => __DIR__ . '/..' . '/psr/cache/src/CacheItemPoolInterface.php',
         'Psr\\Cache\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/cache/src/InvalidArgumentException.php',
+        'Psr\\Clock\\ClockInterface' => __DIR__ . '/..' . '/psr/clock/src/ClockInterface.php',
         'Psr\\Container\\ContainerExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerExceptionInterface.php',
         'Psr\\Container\\ContainerInterface' => __DIR__ . '/..' . '/psr/container/src/ContainerInterface.php',
         'Psr\\Container\\NotFoundExceptionInterface' => __DIR__ . '/..' . '/psr/container/src/NotFoundExceptionInterface.php',
